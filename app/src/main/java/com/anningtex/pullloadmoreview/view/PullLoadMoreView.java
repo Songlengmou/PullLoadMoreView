@@ -101,7 +101,7 @@ public class PullLoadMoreView extends LinearLayout {
     private void init(AttributeSet attrs) {
         mScroller = new Scroller(getContext(), new DecelerateInterpolator());
         TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.PullLoadMoreView);
-        topBackGroundColor = array.getColor(R.styleable.PullLoadMoreView_top_background_color, Color.WHITE);
+        topBackGroundColor = array.getColor(R.styleable.PullLoadMoreView_top_background_color, Color.GRAY);
         array.recycle();
         setOrientation(VERTICAL);
     }
@@ -138,7 +138,11 @@ public class PullLoadMoreView extends LinearLayout {
             topLayout.setPadding(paddingLeft, mPaddingTop, paddingRight, mPaddingBottom);
         });
 
-        topLayout.addView(headLayout);
+        //动态设置的顶部view高度
+        LayoutParams layoutParams1 = new LayoutParams(LayoutParams.MATCH_PARENT, 900);
+        topLayout.addView(headLayout, layoutParams1);
+        //默认的顶部view高度
+//        topLayout.addView(headLayout);
         topLayout.addView(dotView, layoutParams);
         addView(topLayout, 0);
     }
