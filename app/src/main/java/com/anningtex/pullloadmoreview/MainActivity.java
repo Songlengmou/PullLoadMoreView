@@ -4,8 +4,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.anningtex.pullloadmoreview.view.PullLoadMoreView;
+import com.syp.library.BaseRecycleAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Song
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        RecyclerView mRecycle = findViewById(R.id.recycle);
         mPullLoadMoreView = findViewById(R.id.pullLoadMoreView);
         //添加头部布局
         mPullLoadMoreView.addHeadView(R.layout.top_layout);
@@ -37,5 +43,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Close", Toast.LENGTH_SHORT).show();
             }
         });
+        //列表
+        List<String> list = new ArrayList<>();
+        int index = 0;
+        for (int i = 0; i < 20; i++) {
+            index++;
+            list.add(index + "");
+        }
+        BaseRecycleAdapter<String> adapter = new BaseRecycleAdapter<>(R.layout.adapter_item, list);
+        adapter.setOnDataToViewListener((helper, item, position) -> {
+            String str = (String) item;
+            helper.setText(R.id.tv_item, str);
+        });
+        mRecycle.setAdapter(adapter);
     }
 }
