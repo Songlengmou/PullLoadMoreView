@@ -139,7 +139,7 @@ public class PullLoadMoreView extends LinearLayout {
         });
 
         //动态设置的顶部view高度
-        LayoutParams layoutParams1 = new LayoutParams(LayoutParams.MATCH_PARENT, 900);
+        LayoutParams layoutParams1 = new LayoutParams(LayoutParams.MATCH_PARENT, 600);
         topLayout.addView(headLayout, layoutParams1);
         //默认的顶部view高度
 //        topLayout.addView(headLayout);

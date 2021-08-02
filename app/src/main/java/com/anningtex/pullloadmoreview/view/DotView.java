@@ -43,7 +43,6 @@ public class DotView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         float centerX = (float) (getWidth() / 2);
         float centerY = (float) (getHeight() / 2);
         float fl = 255 * percent * 1.5f + 30;
@@ -55,7 +54,8 @@ public class DotView extends View {
         if (percent <= 0.3f) {
             float radius = percent * 3.33f * maxRadius;
             canvas.drawCircle(centerX, centerY, radius, mPaint);
-        } else {//画三个个圆
+        } else {
+            //画三个圆
             float afterPercent = (percent - 0.3f) / 0.7f;
             if (afterPercent <= 1) {
                 float radius = maxRadius - maxRadius / 2f * afterPercent;

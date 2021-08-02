@@ -36,8 +36,11 @@ public class MainActivity extends AppCompatActivity {
         mPullLoadMoreView.setViewStateListener(viewState -> {
             if (viewState == PullLoadMoreView.VIewState.OPEN) {
                 Toast.makeText(MainActivity.this, "Open", Toast.LENGTH_SHORT).show();
-                mPullLoadMoreView.findViewById(R.id.imageView).setOnClickListener(view -> {
-                    Toast.makeText(MainActivity.this, "被点击了", Toast.LENGTH_SHORT).show();
+                mPullLoadMoreView.findViewById(R.id.imageView_one).setOnClickListener(view -> {
+                    Toast.makeText(MainActivity.this, "1被点击了", Toast.LENGTH_SHORT).show();
+                });
+                mPullLoadMoreView.findViewById(R.id.imageView_two).setOnClickListener(view -> {
+                    Toast.makeText(MainActivity.this, "2被点击了", Toast.LENGTH_SHORT).show();
                 });
             } else {
                 Toast.makeText(MainActivity.this, "Close", Toast.LENGTH_SHORT).show();
