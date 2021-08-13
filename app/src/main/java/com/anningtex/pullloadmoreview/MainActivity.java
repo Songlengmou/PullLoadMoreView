@@ -48,10 +48,8 @@ public class MainActivity extends AppCompatActivity {
         });
         //列表
         List<String> list = new ArrayList<>();
-        int index = 0;
         for (int i = 0; i < 20; i++) {
-            index++;
-            list.add(index + "");
+            list.add(i + 1 + "");
         }
         BaseRecycleAdapter<String> adapter = new BaseRecycleAdapter<>(R.layout.adapter_item, list);
         adapter.setOnDataToViewListener((helper, item, position) -> {
